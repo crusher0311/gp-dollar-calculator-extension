@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advisor Quick Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-container">
+    <div class="sidebar">
+      <h2>Sponsors</h2>
+      <div class="sponsor-box"><a href="https://empoweryouradvisor.com" target="_blank" title="Empowered Advisor"><img src="sponsor1.png" /></a></div>
+      <div class="sponsor-box"><a href="https://myoilsticker.com" target="_blank" title="My Oil Sticker"><img src="sponsor2.png" /></a></div>
+      <div class="sponsor-box"><a href="https://appfueled.com" target="_blank" title="App Fueled"><img src="sponsor3.png" /></a></div>
+    </div>
+    <div class="content">
+      <div class="top-bar">
+        <h1>Advisor Quick Calculator</h1>
+        <a class="settings-icon" href="options.html" title="Settings" target="_blank">⚙</a>
+      </div>
+      <form id="jobForm">
+        <section class="card">
+          <h2>Job Inputs</h2>
+          <label>Total Sale:
+            <div class="input-prefix"><span>$</span><input id="sale" type="number" required /></div>
+          </label>
+          <label>Tech Billed Hours:
+            <input id="hours" type="number" step="0.01" min="0" required title="Number of hours billed for this job" />
+            <small>× Tech Cost per Hour from Settings</small>
+          </label>
+          <label>Cost of Parts:
+            <div class="input-prefix"><span>$</span><input id="partsCost" type="number" required /></div>
+          </label>
+        </section>
+        <section class="card">
+          <h2>Job Results</h2>
+          <p><strong>Gross Profit = Total Sale - Labor - Parts</strong></p>
+          <p>Gross Profit: <span id="gp"></span></p>
+          <p>GP %: <span id="gpPercent"></span></p>
+          <p>GP/HR: <span id="gpPerHour"></span></p>
+          <p id="thresholdDisplay"></p>
+          <p id="overheadDisplay"></p>
+        </section>
+        <div id="alert" class="alert">🚫 DO NOT SELL 🚫</div>
+        <button id="calculate" type="submit" class="primary-cta">Calculate</button>
+      </form>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 480px;
+  background-color: #fff;
+}
+.main-container {
+  display: flex;
+  flex-direction: row;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-right: 1px solid #ccc;
+}
+.sidebar h2 {
+  font-size: 16px;
+  text-align: center;
+}
+.sponsor-box {
+  margin: 10px auto;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.sponsor-box img {
+  max-width: 140px;
+  max-height: 100px;
+  object-fit: contain;
+}
+.content {
+  flex-grow: 1;
+  padding: 12px;
+}
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.settings-icon {
+  font-size: 18px;
+  color: #9333ea;
+  text-decoration: none;
+}
+h1 {
+  font-size: 18px;
+  margin: 0;
+}
+h2 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 2px;
+}
+.card {
+  background: #f7f7f7;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+label {
+  display: block;
+  margin: 10px 0 6px;
+}
+input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 2px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.input-prefix {
+  display: flex;
+  align-items: center;
+}
+.input-prefix span {
+  margin-right: 4px;
+  font-weight: bold;
+}
+button.primary-cta {
+  width: 100%;
+  padding: 12px;
+  background: #28a745;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.redText {
+  color: red;
+}
+.greenText {
+  color: green;
+}
+.alert {
+  display: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  margin: 10px 0;
+}
