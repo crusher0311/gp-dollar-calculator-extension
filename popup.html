@@ -22,14 +22,20 @@
         <section class="card">
           <h2>Job Inputs</h2>
           <label>Total Sale:
-            <div class="input-prefix"><span>$</span><input id="sale" type="number" required /></div>
+            <div class="input-prefix">
+              <span>$</span>
+              <input id="sale" type="number" step="0.01" required />
+            </div>
           </label>
           <label>Tech Billed Hours:
             <input id="hours" type="number" step="0.01" min="0" required title="Number of hours billed for this job" />
             <small>× Tech Cost per Hour from Settings</small>
           </label>
           <label>Cost of Parts:
-            <div class="input-prefix"><span>$</span><input id="partsCost" type="number" required /></div>
+            <div class="input-prefix">
+              <span>$</span>
+              <input id="partsCost" type="number" step="0.01" required />
+            </div>
           </label>
         </section>
         <section class="card">
