@@ -1,4 +1,28 @@
   GNU nano 7.2         .github/workflows/build-extension.yml
+  GNU nano 7.2         .github/workflows/build-extension.yml
+name: Build & Package Chrome Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+                               [ Read 61 lines ]
+^G Help      ^O Write Out ^W Where Is  ^K Cut       ^T Execute   ^C Location
+^X Exit      ^R Read File ^\ Replace   ^U Paste     ^J Justify   ^/ Go To Line
+  GNU nano 7.2         .github/workflows/build-extension.yml
 name: Build & Package Chrome Extension
 
 on:
