@@ -1,4 +1,3 @@
-
 name: Build & Package Chrome Extension
 
 on:
@@ -7,6 +6,9 @@ on:
       - "v*"
     branches:
       - main
+
+permissions:
+  contents: write
 
 jobs:
   build:
