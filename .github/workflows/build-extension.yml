@@ -1,0 +1,37 @@
+name: Build & Package Chrome Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Inject version into manifest.json
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "Setting manifest version to $VERSION"
+          jq --arg version "$VERSION" '.version = $version' \
+            manifest.json > tmp.json && mv tmp.json manifest.json
+
+      - name: Zip extension
+        run: |
+          zip -r gp-calculator-extension-${GITHUB_REF#refs/tags/v}.zip .
+
+      - name: Upload ZIP to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: gp-calculator-extension-${{ github.ref_name }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
