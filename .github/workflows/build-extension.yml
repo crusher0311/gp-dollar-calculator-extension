@@ -1,16 +1,14 @@
-  GNU nano 7.2         .github/workflows/build-extension.yml
-  GNU nano 7.2         .github/workflows/build-extension.yml
+
 name: Build & Package Chrome Extension
 
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,64 +16,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-                               [ Read 61 lines ]
-^G Help      ^O Write Out ^W Where Is  ^K Cut       ^T Execute   ^C Location
-^X Exit      ^R Read File ^\ Replace   ^U Paste     ^J Justify   ^/ Go To Line
-  GNU nano 7.2         .github/workflows/build-extension.yml
-name: Build & Package Chrome Extension
-
-on:
-  push:
-    tags:
-      - 'v*'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-                               [ Read 37 lines ]
-^G Help      ^O Write Out ^W Where Is  ^K Cut       ^T Execute   ^C Location
-^X Exit      ^R Read File ^\ Replace   ^U Paste     ^J Justify   ^/ Go To Line
-name: Build & Package Chrome Extension
-
-on:
-  push:
-    tags:
-      - 'v*'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+          node-version: 20
 
       - name: Inject version into manifest.json
         run: |
           VERSION=${GITHUB_REF#refs/tags/v}
           echo "Setting manifest version to $VERSION"
-          jq --arg version "$VERSION" '.version = $version' \
-            manifest.json > tmp.json && mv tmp.json manifest.json
+          jq --arg version "$VERSION" '.version = $version' manifest.json > tmp.json && mv tmp.json manifest.json
 
       - name: Zip extension
         run: |
-          zip -r gp-calculator-extension-${GITHUB_REF#refs/tags/v}.zip .
+          zip -r gp-calculator-extension-${{ github.ref_name }}.zip .
 
       - name: Upload ZIP to release
         uses: softprops/action-gh-release@v1
